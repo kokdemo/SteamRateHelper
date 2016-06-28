@@ -1,0 +1,29 @@
+{
+    "name": "SteamRateHelper",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "明显的显示steam搜索结果和评分",
+    "icons": {
+        "48": "logo.png"
+    },
+    "permissions": [
+
+    ],
+    "content_scripts": [
+        {
+            "all_frames" :true,
+            "matches": [
+                "*://store.steampowered.com/tag/*",
+                "*://store.steampowered.com/search/*"
+            ],
+            "js": [
+                "js/jquery.js",
+                "js/main.js"
+            ],
+            "css": [
+                "main.css"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
