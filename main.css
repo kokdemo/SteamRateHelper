@@ -1,3 +1,47 @@
 .search_result_row .col.search_released{
     line-height: 22px!important;
+
+}
+.search_result_row .col.search_released p{
+    position: absolute;
+    bottom: 0;
+}
+
+.responsive_search_name_combined::after{
+    display: inline-block;
+    width: 10px;
+    height: 45px;
+    /*background-color: yellow;*/
+    content:'';
+    position: absolute;
+    right: 0;
+    top:0;
+}
+
+.rate-yellow::after{
+    background-color: #FFEB3B;
+}
+
+.rate-orange::after{
+    background-color: #FF9800;
+}
+
+.rate-purple::after{
+    background-color: #673AB7;
+}
+
+.rate-blue::after{
+    background-color: #2196F3;
+}
+
+.rate-green::after{
+    background-color: #4CAF50;
+}
+
+.rate-grey::after{
+    background-color: #9E9E9E;
+}
+
+.search_result_row .col.search_price {
+    width: 80px!important;
 }

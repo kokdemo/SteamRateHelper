@@ -1,10 +1,10 @@
 {
     "name": "SteamRateHelper",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "manifest_version": 2,
     "description": "明显的显示steam搜索结果和评分",
     "icons": {
-        "48": "logo.png"
+        "48": "icon.png"
     },
     "permissions": [
 
