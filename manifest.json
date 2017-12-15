@@ -1,6 +1,6 @@
 {
     "name": "SteamRateHelper",
-    "version": "0.0.3",
+    "version": "0.1",
     "manifest_version": 2,
     "description": "明显的显示steam搜索结果和评分",
     "icons": {
@@ -13,6 +13,7 @@
         {
             "all_frames" :true,
             "matches": [
+                "*://store.steampowered.com/",
                 "*://store.steampowered.com/tag/*",
                 "*://store.steampowered.com/search/*"
             ],

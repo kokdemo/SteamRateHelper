@@ -13,27 +13,61 @@ function getRate() {
             var rate = Math.floor(summaryText[1]/5);
             var rateInfo = '';
             if(summaryText[0].replace(/,+/g,"") > 500){
-                if(rate >= 19){
-                    rateInfo = 'rate-yellow';
-                }else if(rate >= 18){
-                    rateInfo = 'rate-orange';
-                }else if(rate >= 17){
-                    rateInfo = 'rate-purple';
+                if(rate >= 18){
+                    rateInfo = 'green-3';
                 }else if(rate >= 16){
-                    rateInfo = 'rate-blue';
+                    rateInfo = 'green-2';
                 }else if(rate >= 14){
-                    rateInfo = 'rate-green';
+                    rateInfo = 'green-1';
+                }else if(rate >= 12){
+                    rateInfo = 'yellow';
                 }else{
-                    rateInfo = 'rate-grey';
+                    rateInfo = 'red';
                 }
             }
             summary.parentNode.parentNode.className += (" "+rateInfo);
+            temp.className += (" "+rateInfo);
         }
     }
 }
+function getHotRate(){
+    var list = document.getElementsByClassName("home_tabs_content")[0].querySelectorAll(".tab_item:not(.hidden)");
+    var preview = document.getElementsByClassName("tab_review_summary");
+    for(var i = 0;i< list.length-1;i++){
+        var summary = preview[i].getAttribute('data-tooltip-content');
+        if (summary !== "无用户评测") {
+            var summaryText = preview[i].getAttribute("data-tooltip-content").match(/\d+,?\d*,?\d*/g);
+            var rate = Math.floor(summaryText[1]/5);
+            var rateInfo = '';
+            if(summaryText[0].replace(/,+/g,"") > 500){
+                if(rate >= 18){
+                    rateInfo = 'green-3';
+                }else if(rate >= 16){
+                    rateInfo = 'green-2';
+                }else if(rate >= 14){
+                    rateInfo = 'green-1';
+                }else if(rate >= 12){
+                    rateInfo = 'yellow';
+                }else{
+                    rateInfo = 'red';
+                }
+            }
+            list[i].className += (" "+rateInfo);
+        }   
+    }
+}
+
 $(function() {
-    getRate();
+    //getRate();
+    //getHotRate();
     var prevHash = window.location.href;
+    window.setTimeout(function() {
+        if ((window.location.href != prevHash) || (document.getElementsByClassName('ratehelper').length == 0)) {
+            prevHash = window.location.href;
+            getRate();
+            getHotRate();
+        }
+    }, 1200);
     window.setInterval(function() {
         if ((window.location.href != prevHash) || (document.getElementsByClassName('ratehelper').length == 0)) {
             prevHash = window.location.href;
